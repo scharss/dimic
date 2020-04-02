@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130429672-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-130429672-1');
+    </script>
+    <meta charset="UTF-8">
+    <title>tracking</title>
+
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css'>
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+
+    <div id="app">
+        <l-map ref="map" :zoom="14" :center="center">
+            <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+            <l-marker v-for="user in users" :lat-lng="formatLocation(user.coords.latitude, user.coords.longitude)"></l-marker>
+        </l-map>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js'></script>
+    <script src='https://unpkg.com/vue2-leaflet@1.0.1/dist/vue2-leaflet.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+    <script src='https://unpkg.com/vuefire/dist/vuefire.js'></script>
+
+
+
+    <script src="js/index.js"></script>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCv3OQt7LCiAuDCJEiF5Yaw679BTvWiirs",
+            authDomain: "domicilios-a2865.firebaseapp.com",
+            databaseURL: "https://domicilios-a2865.firebaseio.com",
+            projectId: "domicilios-a2865",
+            storageBucket: "domicilios-a2865.appspot.com",
+            messagingSenderId: "342829914057",
+            appId: "1:342829914057:web:272c66cb3fc54c2707ba18",
+            measurementId: "G-D8YS2CD0RJ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+</body>
+
+</html>
